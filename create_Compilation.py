@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import sqlite3
 import difflib
@@ -11,7 +12,16 @@ except ImportError:
     MutagenFile = None
 
 # CONFIG
-DB_PATH = "music_library.db"
+MUSIC_FOLDER = "/Volumes/NAS/Media/Music"  # o prendi il valore dalla GUI
+DB_FILENAME = "music_library.db"
+DB_PATH_MUSIC = os.path.join(MUSIC_FOLDER, DB_FILENAME)
+DB_PATH_LOCAL = os.path.join(os.path.dirname(__file__), DB_FILENAME)
+
+if os.path.exists(DB_PATH_MUSIC):
+    DB_PATH = DB_PATH_MUSIC
+else:
+    DB_PATH = DB_PATH_LOCAL
+
 SECOND_FOLDER = "/Volumes/Incoming"
 COMPILATIONS_FILE = "compilations.json"
 
@@ -29,6 +39,7 @@ def normalize(s):
     s = s.lower().replace("’", "'").replace("`", "'").replace("‘", "'").replace("-", " ").replace("_", " ").strip()
     s = unicodedata.normalize('NFKD', s)
     s = ''.join(c for c in s if not unicodedata.combining(c))
+    s = re.sub(r'[^a-z0-9 ]', '', s)  # rimuove tutto tranne lettere, numeri e spazi
     return s
 
 def find_all_matches_db(conn, artist, title):

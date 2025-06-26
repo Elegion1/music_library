@@ -3,6 +3,7 @@ import sqlite3
 import time
 from mutagen import File as MutagenFile
 import sys
+import shutil
 
 # CONFIGURAZIONE
 MUSIC_FOLDER = sys.argv[1] if len(sys.argv) > 1 else "/Volumes/NAS/Storage/Backup/Music"
@@ -101,6 +102,13 @@ for path in to_delete:
 conn.commit()
 
 conn.close()
+
+# Copia il database nella cartella della musica
+try:
+    shutil.copyfile("music_library.db", os.path.join(MUSIC_FOLDER, "music_library.db"))
+    print(f"Database copiato in {os.path.join(MUSIC_FOLDER, 'music_library.db')}")
+except Exception as e:
+    print(f"Errore nel copiare il database nella cartella della musica: {e}")
 
 print(f"\n✅ Indicizzazione completata:")
 print(f"   Nuovi file aggiunti : {added}")

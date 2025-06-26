@@ -88,6 +88,7 @@ class CompilationApp:
         path = filedialog.askopenfilename(filetypes=[("Text Files", "*.txt")])
         if path:
             self.txt_path.set(path)
+            self.log(f"Percorso file tracklist selezionato: {self.txt_path.get()}")
 
     def log(self, message):
         self.log_text.insert("end", message + "\n")
@@ -248,18 +249,29 @@ class CompilationApp:
             return
 
         if self.txt_path.get():
+            import re
             path = self.txt_path.get()
             self.tracklist = []
+            # Regex: accetta vari tipi di trattino come separatore
+            sep_regex = re.compile(r"\s*[-–—‒―]\s*")
             with open(path, "r", encoding="utf-8") as f:
-                for line in f:
+                for line_num, line in enumerate(f, 1):
+                    self.log(f"Riga {line_num}: '{line.rstrip()}'")
                     line = line.strip()
-                    if " - " in line:
-                        artist, title = line.split(" - ", 1)
+                    match = sep_regex.split(line, maxsplit=1)
+                    if len(match) == 2:
+                        artist, title = match
+                        self.log(f"  -> Artista: '{artist.strip()}', Titolo: '{title.strip()}' (aggiunto)")
                         self.tracklist.append((artist.strip(), title.strip()))
+                    else:
+                        self.log(f"  -> Riga ignorata (no separatore trattino valido)")
+            self.log(f"Tracklist caricata: {self.tracklist}")
 
         self.log("Avvio ricerca brani...")
 
         try:
+            # Log percorso DB usato
+            self.log(f"Percorso database usato: {DB_PATH}")
             # Trova tutti i match per ogni brano e salva la scelta
             matches_dict = {}
             selected_paths = []
@@ -273,6 +285,7 @@ class CompilationApp:
                     matches = find_all_matches_folder(SECOND_FOLDER, artist, title)
                 matches_dict[idx] = matches
                 if matches:
+                    self.log(f"Cerco: '{artist}' - '{title}'")
                     path = self.ask_user_choice(artist, title, matches)
                     selected_paths.append(path)
                 else:
@@ -287,15 +300,23 @@ class CompilationApp:
             not_copied = []
             for idx, path in enumerate(selected_paths):
                 if path:
+                    # Sostituzione path server -> path locale se necessario
+                    server_root = '../media/'
+                    local_root = '/Volumes/NAS/Media/Music/'
+                    if path.startswith(server_root):
+                        local_path = os.path.join(local_root, path[len(server_root):])
+                        self.log(f"Path server '{path}' sostituito con path locale '{local_path}'")
+                    else:
+                        local_path = path
                     # Copia il file nella cartella di destinazione
                     artist, title = self.tracklist[idx]
-                    ext = os.path.splitext(path)[1]
+                    ext = os.path.splitext(local_path)[1]
                     dest_dir = os.path.join(self.dest_folder.get(), self.compilation_name.get())
                     os.makedirs(dest_dir, exist_ok=True)
                     dest_path = os.path.join(dest_dir, f"{idx+1}. {artist} - {title}{ext}")
                     try:
                         if not os.path.exists(dest_path):
-                            shutil.copy2(path, dest_path)
+                            shutil.copy2(local_path, dest_path)
                     except Exception as e:
                         not_copied.append(f"{artist} - {title}: {e}")
                 else:

@@ -194,24 +194,112 @@
     ],
     "selected_paths": [
       null,
+      "../media/Aqua/Aquarius/Aqua - Barbie Girl.mp3",
+      "../media/Various Artists/Die ultimative Chart Show_ Die erfolgreichsten Dancefloor Hits aller Zeiten/Eiffel 65 - Blue (Da Ba Dee).flac",
+      "../media/Corona/Super Best & Remix/Corona - The Rhythm Of The Night.mp3",
+      "../media/Haddaway/The Album/Haddaway - What Is Love (7” mix) (2).mp3",
       null,
-      "/Volumes/NAS/Media/Music/Various Artists/Die ultimative Chart Show_ Die erfolgreichsten Dancefloor Hits aller Zeiten/Eiffel 65 - Blue (Da Ba Dee).flac",
-      "/Volumes/NAS/Media/Music/Corona/The Rhythm of the Night/Corona - The Rhythm of the Night.mp3",
+      "../media/Various Artists/Now That’s What I Call Music! 1994_ The Millennium Series/Whigfield - Saturday Night.mp3",
       null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
+      "../media/Dr. Alban/One Love (2nd Edition)/Dr. Alban - Sing Hallelujah!.mp3",
+      "../media/Alexia/Fan Club/Alexia - Uh La La La.mp3",
       null,
       null,
+      "../media/Various Artists/F___ Me I’m Famous! Ibiza Mix 2005/D.O.N.S. feat. Technotronic - Pump Up the Jam (version 2005 radio edit).m4a",
+      null,
+      "../media/Britney Spears/…Baby One More Time/Britney Spears - …Baby One More Time.mp3",
+      "../media/Various Artists/Valvoline Summer Hits/Lou Bega - Mambo No. 5 (A Little Bit Of…).mp3",
+      "../media/Ace of Base/Happy Nation/Ace of Base - All That She Wants.flac",
+      "../media/Snap!/The Madman’s Return/Snap! - Rhythm Is a Dancer.mp3",
+      "../media/DJ BoBo/Chihuahua/DJ BoBo - Chihuahua (Xtn remix).mp3",
+      "../media/Various Artists/Now That’s What I Call Music! 1996_ The Millennium Series/Spice Girls - Wannabe.mp3"
+    ]
+  },
+  {
+    "name": "Compilation 2001",
+    "dest_base": "/Users/gionnymiele/Desktop/Compilation",
+    "tracklist": [
+      [
+        "Alicia Keys",
+        "Fallin’"
+      ],
+      [
+        "Shakira",
+        "Whenever, Wherever"
+      ],
+      [
+        "Destiny’s Child",
+        "Survivor"
+      ],
+      [
+        "Missy Elliott",
+        "Get Ur Freak On"
+      ],
+      [
+        "Kylie Minogue",
+        "Can’t Get You Out of My Head"
+      ],
+      [
+        "Enya",
+        "Only Time"
+      ],
+      [
+        "Gorillaz",
+        "Clint Eastwood"
+      ],
+      [
+        "Dido",
+        "Thank You"
+      ],
+      [
+        "Linkin Park",
+        "In the End"
+      ],
+      [
+        "Nelly Furtado",
+        "I’m Like a Bird"
+      ],
+      [
+        "Jennifer Lopez",
+        "Love Don’t Cost a Thing"
+      ],
+      [
+        "Mary J. Blige",
+        "Family Affair"
+      ],
+      [
+        "OutKast",
+        "Ms. Jackson"
+      ],
+      [
+        "Craig David",
+        "7 Days"
+      ],
+      [
+        "Daft Punk",
+        "One More Time"
+      ],
+      [
+        "System of a Down",
+        "Chop Suey!"
+      ]
+    ],
+    "selected_paths": [
+      null,
+      "../media/Various Artists/Het Beste Uit De MNM 1000 - 2019/Shakira - Whenever, Wherever.mp3",
+      null,
+      "../media/Missy Elliott/Miss E …So Addictive/Missy Elliott - Get Ur Freak On.mp3",
+      "../media/Kylie Minogue/Fever/Kylie Minogue - Can’t Get You Out of My Head.mp3",
+      null,
+      "../media/Gorillaz/Gorillaz/Gorillaz - Clint Eastwood.flac",
+      "../media/Dido/No Angel/Dido - Thank You.mp3",
       null,
       null,
+      "../media/Jennifer Lopez/J.Lo/Jennifer Lopez - Love Don’t Cost a Thing.mp3",
       null,
-      "/Volumes/NAS/Media/Music/Snap!/The Madman’s Return/Snap! - Rhythm Is a Dancer.mp3",
+      "../media/OutKast/Ms. Jackson/OutKast - Ms. Jackson (radio mix).mp3",
       null,
+      "../media/Daft Punk/Discovery/Daft Punk - One More Time.mp3",
       null
     ]
   }
